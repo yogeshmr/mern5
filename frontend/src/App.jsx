@@ -1,5 +1,11 @@
-import { Box, Text, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useEffect } from 'react';
+import CreatePage from './pages/CreatePage';
+import HomePage from './pages/HomePage';
+import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
   useEffect(() => {
@@ -9,13 +15,14 @@ function App() {
   console.log('App component rendering');
 
   return (
-    <Container maxW="container.xl">
-      <Box p={4} bg="gray.100" minH="100vh" width="100%">
-        <Text fontSize="2xl" color="blue.500" fontWeight="bold" textAlign="center">
-          Hello World - Again
-        </Text>
-      </Box>
-    </Container>
+    <Box minH={"100vh"}>
+      <Navbar />
+    <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/create" element={<CreatePage />} />
+    </Routes>
+    </Box>
+    
   )
 }
 
