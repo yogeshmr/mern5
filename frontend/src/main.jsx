@@ -4,6 +4,8 @@ import App from './App.jsx'
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
 import { extendTheme } from '@chakra-ui/react'
 
+import { BrowserRouter } from 'react-router-dom';
+
 // Define the initial color mode
 const config = {
   initialColorMode: 'light',
@@ -22,8 +24,9 @@ try {
   createRoot(rootElement).render(
     <React.StrictMode>
       <ChakraProvider theme={theme}>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ChakraProvider>
     </React.StrictMode>,
   )
