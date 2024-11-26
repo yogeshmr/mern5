@@ -9,6 +9,13 @@ export default defineConfig({
     hmr: {
       clientPort: 443,
       host: '0.0.0.0'
+    },
+    proxy: {
+      '/api': {
+        target: 'https://localhost:3000',
+        // changeOrigin: true,
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   }
 })
