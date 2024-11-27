@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm run build",
+    "prod_build": "npm install && npm install --prefix frontend && cd frontend && npm run build"
   },
   "type": "module",
   "keywords": [],

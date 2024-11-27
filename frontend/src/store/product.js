@@ -20,7 +20,7 @@ export const useProductStore = create((set) => ({
     const data = await res.json();
       // Ensure products is always an array before spreading
       set((state) => ({
-        products: Array.isArray(state.products) ? [...state.products, data.product] : [data.product]
+        products: Array.isArray(state.products) ? [...state.products, data.data] : [data.data]
       }));
     return {success:true, message:"Product added successfully(product.js)"};
     } catch(error){
@@ -34,7 +34,7 @@ export const useProductStore = create((set) => ({
     try {
       const res = await fetch("/api/products");
       const data = await res.json();
-      set({ products: data.product, isLoading: false });
+      set({ products: data.data, isLoading: false });
     } catch (error) {
       set({ isLoading: false });
       console.error(error);
@@ -66,7 +66,7 @@ export const useProductStore = create((set) => ({
 
     // update the ui immediately, without needing a refresh
     set((state) => ({
-      products: state.products.map((product) => (product._id === pid ? data.product : product)),
+      products: state.products.map((product) => (product._id === pid ? data.data : product)),
     }));
 
     return { success: true, message: data.message };
