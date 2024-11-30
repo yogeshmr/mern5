@@ -16,17 +16,21 @@ app.use(cors());
 // Parse JSON bodies
 app.use(express.json());
 
-// Serve static files from the frontend build directory
-app.use(express.static(path.join(__dirname, 'frontend/dist')));
+
 
 // API routes go here
 app.use("/api/products", productRoutes);
 
+if(process.env.NODE_ENV === 'production'){
+// Serve static files from the frontend build directory
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
 // Handle all other routes by serving the index.html
 app.get('*', (req, res) => {
   console.log('Serving index.html'); // Debug log
   res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
 });
+}
+
 
 const PORT = process.env.PORT || 3000;
 
