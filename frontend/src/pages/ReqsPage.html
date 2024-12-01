@@ -1,0 +1,134 @@
+<html>
+<head>
+    <title>Filter Page</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        const FilterSection = ({ title, children }) => (
+            <div className="border p-4 w-64 h-80 overflow-y-auto">
+                <h2 className="font-bold mb-2">{title}</h2>
+                {children}
+            </div>
+        );
+
+        const App = () => (
+            <div className="flex overflow-x-auto h-screen">
+                <div className="flex-shrink-0">
+                    <FilterSection title="Manufacturer">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["Aillen", "American Technical Ceramics", "ARCOL", "Bourns Inc.", "Caddock Electronics Inc.", "Cal-Chip Electronics, Inc.", "CODIXX AG", "CTS Resistor Products", "Delta Electronics", "Delta Electronics (Cyntec)"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Series">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["-", "*", "30", "3430", "3502, CGS", "3503", "3504", "3520, CGS", "3521, CGS", "3522"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Packaging">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["Bag", "Box", "Bulk", "Cut Tape (CT)", "Digi-Reel®", "Retail Package", "Strip", "Tape & Box (TB)", "Tape & Reel (TR)", "Tray", "Tube"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Product Status">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["Active", "Discontinued at Digi-Key", "Last Time Buy", "Not For New Designs", "Obsolete"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Resistance">
+                        <div className="flex mb-2">
+                            <input type="text" placeholder="Min" className="border p-2 w-1/2 mr-1" />
+                            <input type="text" placeholder="Max" className="border p-2 w-1/2 ml-1" />
+                        </div>
+                        <select className="border p-2 w-full mb-2">
+                            <option>µOhms</option>
+                        </select>
+                        <div>
+                            {["0 Ohms", "100 µOhms", "0.1 mOhms", "0.15 mOhms", "180 µOhms", "190 µOhms", "200 µOhms", "0.2 mOhms", "0.25 mOhms", "250 µOhms"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Tolerance">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["0%, -10%", "0%, -20%", "0%, -30%", "±0.01%", "±0.02%", "±0.05%", "±0.1%", "±0.2%", "±0.25%", "±0.5%"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Power (Watts)">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["0.01W", "0.0125W", "0.0189W", "0.02W", "0.025W", "0.03W, 1/32W", "0.0375W", "0.04W", "0.05W, 1/20W", "0.06W"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Composition">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["-", "Carbon Composition", "Carbon Film", "Ceramic", "Metal Element", "Metal Film", "Metal Foil", "Thick Film", "Thin Film", "Wirewound"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Temperature Coefficient">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["±5ppm/°C", "±10ppm/°C", "±15ppm/°C", "±20ppm/°C", "±25ppm/°C", "±50ppm/°C", "±100ppm/°C", "±200ppm/°C", "±250ppm/°C", "±300ppm/°C"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+                <div className="flex-shrink-0">
+                    <FilterSection title="Size / Dimension">
+                        <input type="text" placeholder="Search Filter" className="border p-2 w-full mb-2" />
+                        <div>
+                            {["0402 (1005 Metric)", "0603 (1608 Metric)", "0805 (2012 Metric)", "1206 (3216 Metric)", "1210 (3225 Metric)", "1812 (4532 Metric)", "2010 (5025 Metric)", "2512 (6432 Metric)", "2920 (7343 Metric)", "4020 (10050 Metric)"].map((item, index) => (
+                                <div key={index} className="mb-1">{item}</div>
+                            ))}
+                        </div>
+                    </FilterSection>
+                </div>
+            </div>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+</body>
+</html>
